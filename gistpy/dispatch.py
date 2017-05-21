@@ -29,7 +29,7 @@ class Dispatcher(object):
         args = self.parser.parse_args(argv)
         try:
             debug_print(args.func(args))
-        except Exception, emg:
-            print emg
+        except Exception as emg:
+            print(emg)
             debug_print(traceback.format_exc())
 

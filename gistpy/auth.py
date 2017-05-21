@@ -22,11 +22,11 @@ class Auth(object):
     def get_access_token_api(self):
         response = self._get_authorization_list()
         for auth in response:
-            if auth["app"]["name"] == u"{0} (API)".format(APP_NAME):
+            if auth["app"]["name"] == "{0} (API)".format(APP_NAME):
                 return auth["token"]
         else:
             raise UnauthorizedUser(
-            u"""
+            """
             Your authorization on github was not found.
             Please do `$ gistpy register`.
             """)
@@ -35,10 +35,10 @@ class Auth(object):
         try:
             return self.get_access_token_environ()
         except:
-            print u"'os.environ[\"{0}\"]' was not found.\n".format(APP_TOKEN)
+            print("'os.environ[\"{0}\"]' was not found.\n".format(APP_TOKEN))
         if not is_api:
-            raise UnSetUserKeyError(u"You should do `export {0}=your_access_token`".format(APP_TOKEN))
-        print u"Try to fetch your authorization on github.\n"
+            raise UnSetUserKeyError("You should do `export {0}=your_access_token`".format(APP_TOKEN))
+        print("Try to fetch your authorization on github.\n")
         return self.get_access_token_api()
 
     def _get_authorization_list(self):

@@ -10,6 +10,6 @@ from gistpy.constant import DEBUG
 
 def debug_print(text):
     if DEBUG:
-        print text
+        print(text)
 
 

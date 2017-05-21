@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #from gistpy.constant import ALLOW_SCHEME_LIST, ALLOW_HOST_LIST
-from urlparse import urlparse
+from urllib.parse import urlparse
 import argparse
 import sys
 
@@ -16,7 +16,7 @@ class GistAction(argparse.Action):
 
     def get_id(self, values):
         def strip_path(path):
-            return path.strip(u"/").split(u"/")[-1]
+            return path.strip("/").split("/")[-1]
         return strip_path(urlparse(values).path)
 
     def valid_values(self, values):

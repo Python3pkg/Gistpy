@@ -6,8 +6,8 @@
 DEBUG = False
 APP_NAME = "Gistpy"
 DEFAULT_GIST_NAME = "gist"
-ALLOW_SCHEME_LIST = (u"https",)
-ALLOW_HOST_LIST = (u"api.github.com", u"gist.github.com")
+ALLOW_SCHEME_LIST = ("https",)
+ALLOW_HOST_LIST = ("api.github.com", "gist.github.com")
 
 # Github
 # =============================== #

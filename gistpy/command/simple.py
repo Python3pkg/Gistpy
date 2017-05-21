@@ -35,5 +35,5 @@ class SimpleCommand(object):
         try:
             clipboard_set(text)
         except:
-            print u"Can't store text in the clipboard."
+            print("Can't store text in the clipboard.")
 

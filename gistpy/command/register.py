@@ -29,13 +29,13 @@ class Register(SimpleCommand):
         try:
             access_token = self.auth.get_access_token_api()
         except UnauthorizedUser:
-            print u"Try to register this appliation."
-            print u"*" * 50
+            print("Try to register this appliation.")
+            print("*" * 50)
         except Exception:
             raise
         else:
-            print u"You have already registered your account with this application."
-            print u"Your access_token is {0}".format(access_token)
+            print("You have already registered your account with this application.")
+            print("Your access_token is {0}".format(access_token))
             return access_token
 
         response = self.query.do_POST(
@@ -44,8 +44,8 @@ class Register(SimpleCommand):
         return self.on_receive(response)
 
     def on_receive(self, response):
-        print u"You successfully register your account with this application."
-        print u"Your access_token is {0}\n".format(response["token"])
-        print u"Please do `export {0}={1}`.".format(APP_TOKEN, response["token"])
+        print("You successfully register your account with this application.")
+        print("Your access_token is {0}\n".format(response["token"]))
+        print("Please do `export {0}={1}`.".format(APP_TOKEN, response["token"]))
         return response
 

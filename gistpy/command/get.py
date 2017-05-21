@@ -13,7 +13,7 @@ class Get(SimpleCommand):
         self.gistid = args.gistid
         dest_dir = abspath(args.destination_directory)
         if not isdir(dest_dir):
-            raise OSError(u"{0} is not directory.".format(dest_dir))
+            raise OSError("{0} is not directory.".format(dest_dir))
         self.dest_dir = join(dest_dir, self.gistid)
         self.init_query()
         
@@ -25,12 +25,12 @@ class Get(SimpleCommand):
         return self.on_receive(response)
 
     def on_receive(self, response):
-        print u"Get ====> {0}".format(response["html_url"])
+        print("Get ====> {0}".format(response["html_url"]))
         # create directory
         os.makedirs(self.dest_dir)
-        for name, item in response["files"].iteritems():
+        for name, item in response["files"].items():
             path = join(self.dest_dir, name)
-            print path
+            print(path)
             with open(path, "wb") as f:
                 f.write(item["content"])
         return response

@@ -73,7 +73,7 @@ class Query(object):
             return response
     
     def __repr__(self):
-        return u"uri:<{0}>".format(self.resource.uri)
+        return "uri:<{0}>".format(self.resource.uri)
     
     def __str__(self):
         return self.resource.uri

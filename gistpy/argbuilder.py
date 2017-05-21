@@ -60,7 +60,7 @@ class ParserBuilder(object):
 
         def build(self):
             self.parser.add_argument("gistid", action=GistAction)
-            self.parser.add_argument("destination_directory", nargs='?', default=u'.')
+            self.parser.add_argument("destination_directory", nargs='?', default='.')
             self.parser.set_defaults(func=lambda *args:Get(*args).invoke())
 
 

@@ -10,7 +10,7 @@ class Edit(SimpleCommand):
 
     def __init__(self, args):
         self.gistid = args.gistid
-        self.files = map(abspath, args.files)
+        self.files = list(map(abspath, args.files))
         self.description = args.description
         self.init_query()
         self.init_payload()
@@ -32,5 +32,5 @@ class Edit(SimpleCommand):
     
     def on_receive(self, response):
         self.clipboard_set(response["html_url"])
-        print u"EDIT ====> {0}".format(response["html_url"])
+        print("EDIT ====> {0}".format(response["html_url"]))
         return response

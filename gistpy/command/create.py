@@ -13,12 +13,12 @@ __all__ = ("Create", "CreateStdin")
 class Create(SimpleCommand):
 
     def __init__(self, args):
-        self.files = map(abspath, args.files)
+        self.files = list(map(abspath, args.files))
         self.init(args)
         
     def init(self, args):
         self.is_public = args.private
-        self.description = args.description or u""
+        self.description = args.description or ""
         self.payload = dict()
         self.is_anonymous = args.anonymous
         self.init_query()
@@ -49,9 +49,9 @@ class Create(SimpleCommand):
 
     def on_receive(self, response):
         self.clipboard_set(response["html_url"])
-        print "CREATE ====> {0}".format(response["html_url"])
+        print("CREATE ====> {0}".format(response["html_url"]))
         for fpath in self.files:
-            print fpath
+            print(fpath)
         return response
 
 
@@ -68,6 +68,6 @@ class CreateStdin(Create):
 
     def on_receive(self, response):
         self.clipboard_set(response["html_url"])
-        print "CREATE ====> {0}".format(response["html_url"])
-        print self.filename
+        print("CREATE ====> {0}".format(response["html_url"]))
+        print(self.filename)
         return response
